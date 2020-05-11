@@ -131,7 +131,7 @@ const Canvas = () => {
         />
       </Grid>
 
-      <Grid item lg={5} md={4} sm={12} xs={12}>
+      <Grid item lg={5} md={8} sm={12} xs={12}>
         <Typography variant="h5" color="primary" className={Styles.Title}>
           CANVAS DRAW
         </Typography>
@@ -146,7 +146,7 @@ const Canvas = () => {
         />
       </Grid>
 
-      <Grid item lg={5} md={4} sm={12} xs={12}>
+      <Grid item lg={5} md={12} sm={12} xs={12}>
         <SecondCanvas ref={secondDraw} />
       </Grid>
     </Grid>
