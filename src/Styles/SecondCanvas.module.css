@@ -1,0 +1,8 @@
+.draw{
+  border: 1px solid #dfe6e9;
+  border-radius: 0.5em;
+}
+.title{
+  padding: 1em;
+  text-align: center;
+}
