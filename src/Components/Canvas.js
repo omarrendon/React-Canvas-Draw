@@ -1,7 +1,11 @@
-import React, {useRef, useState} from 'react'
+import React, { useRef, useState } from "react";
 import CanvasDraw from "react-canvas-draw";
+import InputColor from "react-input-color";
 
 const Canvas = () => {
+  const [initial, setInitial] = useState("#5e72e4");
+  const [color, setColor] = useState({});
+
   const [brush, setBrush] = useState(1);
   const [width, setWidth] = useState(400);
   const [height, setHeight] = useState(400);
@@ -12,11 +16,11 @@ const Canvas = () => {
   const handleSave = () => {
     const data = Draw.current.getSaveData();
     console.log(data);
-    secondDraw.current.loadSaveData((data) , (false));
+    secondDraw.current.loadSaveData(data, false);
   };
 
   const handleClear = () => {
-    Draw.current.clear()
+    Draw.current.clear();
   };
 
   const handleBack = () => {
@@ -49,9 +53,21 @@ const Canvas = () => {
       <button onClick={handleClear}> Limpiar </button>
       <button onClick={handleBack}> Atras</button>
 
+      <div
+        style={{
+          width: 50,
+          height: 50,
+          marginBottom: 20,
+          backgroundColor: color.hex
+        }}
+      >
+        {color.hex}
+      </div>
+      <InputColor initialValue={initial} onChange={setColor} />
+
       <CanvasDraw
         brushRadius={brush}
-        brushColor={"red"}
+        brushColor={color.hex}
         canvasWidth={width}
         canvasHeight={height}
         hideGrid={false}
@@ -61,6 +77,6 @@ const Canvas = () => {
       <CanvasDraw hideGrid={true} disabled={true} ref={secondDraw} />
     </div>
   );
-}
+};
 
-export default Canvas
+export default Canvas;
